@@ -1,6 +1,6 @@
 "use client"
 import { app, auth } from "@/utils/firebase";
-import { getAuth, sendSignInLinkToEmail, signInWithPopup } from "firebase/auth";
+import { getAuth, sendSignInLinkToEmail, signInWithPopup, signInWithRedirect } from "firebase/auth";
 import { useState } from "react";
 import { GoogleAuthProvider } from "firebase/auth";
 
@@ -18,7 +18,7 @@ export default function Signin  ()  {
     const [email, setEmail] = useState("")
 
     async function onSignin() {
-        signInWithPopup(auth, provider)
+        await signInWithPopup(auth, provider)
             .then((result) => {
                 // This gives you a Google Access Token. You can use it to access the Google API.
                 const credential = GoogleAuthProvider.credentialFromResult(result);

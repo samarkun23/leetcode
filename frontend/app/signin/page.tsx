@@ -42,9 +42,6 @@ export default function Signin  ()  {
     }
 
     return <div>
-        <input type="text" placeholder="email" onChange={(e) => {
-            setEmail(e.target.value);
-        }} />
         <button onClick={() => {
             onSignin()
         }}>

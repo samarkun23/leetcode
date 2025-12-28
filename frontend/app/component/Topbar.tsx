@@ -1,11 +1,11 @@
 "use client"
 export default function Topbar() {
     return <div className="place-items-center grid">
-        <div className="max-w-screen-xl w-full bg-black  align-center px-5 pb-5 pt-7 ">
-            {/* <img src="/logo-without-bg.png" alt="" className="max-w-60 " /> */}
-            <div className="text-8xl text-white">
-                Daily code
-            </div>
+        <div className="max-w-screen-xl w-full bg-black  align-center px-5 pb-5 ">
+            <img src="/logo-without-bg.png" alt="" className="h-80" />
+            {/* <div className="text-8xl text-white">
+                Daily code */}
+            {/* </div> */}
             <Navbar />
         </div>
 
@@ -31,13 +31,13 @@ const topbarItems = [
     }
 ]
 export function Navbar() {
-    return <div className="flex mt-5">
-        {topbarItems.map(items => <NavbarItems route={items.route} title={items.title} /> )}
+    return <div className="flex">
+        {topbarItems.map(items => <NavbarItems route={items.route} title={items.title} />)}
     </div>
 }
 
-export function NavbarItems({title, route}: {
-    title : string,
+export function NavbarItems({ title, route }: {
+    title: string,
     route: string
 }) {
     return <div className="mr-10 text-white/80 text-lg cursor-pointer hover:text-white text-base font-light">

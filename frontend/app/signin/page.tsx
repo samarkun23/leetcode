@@ -3,6 +3,9 @@ import { app, auth } from "@/utils/firebase";
 import { getAuth, sendSignInLinkToEmail, signInWithPopup, signInWithRedirect } from "firebase/auth";
 import { useState } from "react";
 import { GoogleAuthProvider } from "firebase/auth";
+import { Card, CardAction, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Label } from "@/components/ui/label";
 
 const provider = new GoogleAuthProvider();
 
@@ -14,7 +17,7 @@ const actionCodeSettings = {
     handleCodeInApp: true,
 };
 
-export default function Signin  ()  {
+export default function Signin() {
     const [email, setEmail] = useState("")
 
     async function onSignin() {
@@ -41,11 +44,31 @@ export default function Signin  ()  {
 
     }
 
-    return <div>
-        <button onClick={() => {
+    return <div className="">
+        <div className="flex justify-center m-50 h-50 items-center">
+            <img src="/logo-without-bg.png" alt="" className="h-80" />
+            <Card className="w-[20vw] bg-blue-100">
+                <CardHeader>
+                    <CardTitle>Login to your account</CardTitle>
+                    <CardDescription>login with google or github</CardDescription>
+                    <CardAction>
+                        <Button variant='ghost'>Login</Button>
+                    </CardAction>
+                </CardHeader>
+                <CardFooter className="flex-col gap-2">
+                    <Button type="submit" className="w-full" onClick={() => { onSignin() }}>
+                        Login with Google
+                    </Button>
+                    <Button className="w-full">
+                        Login with Github
+                    </Button>
+                </CardFooter>
+            </Card>
+            {/* <button onClick={() => {
             onSignin()
         }}>
-            Login with google 
-        </button>
+            Login with google
+        </button> */}
+        </div>
     </div>
 }

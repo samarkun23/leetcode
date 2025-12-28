@@ -6,11 +6,11 @@ import { auth } from "@/utils/firebase";
 import { RecoilRoot, useRecoilState, useSetRecoilState } from "recoil";
 import { userAtom } from "@/store/atoms/user";
 import { useRouter } from "next/navigation";
-
+import Topbar from "./component/Topbar";
 
 
 export default function Home() {
-  return <StoreApp />
+  return <Topbar />
 }
 
 function StoreApp() {
@@ -39,7 +39,7 @@ function StoreApp() {
 
   useEffect(() => {
     if (!user.loading && !user.user) {
-      router.push("/signin"); // 👈 no BACKEND_URL
+      router.push("/signin"); 
     }
   }, [user.loading, user.user, router]);
 
